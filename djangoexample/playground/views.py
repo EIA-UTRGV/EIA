@@ -1,0 +1,59 @@
+from django.shortcuts import render
+from django.http import HttpResponse
+import requests
+from bs4 import BeautifulSoup
+
+
+
+# Create your views here.
+def login(request):
+    
+    return render(request, 'Loginpage.html')
+
+def home(request):
+    context = {
+       "name2":  "AAPL",
+       "name3":  "MSFT",
+       "name4":  "AMZN",
+       "name5":  "FB",
+       "name6":  "TSLA",
+       "name7":  "NVDA"
+    }
+
+    return render(request, 'Homepage.html', context)
+
+def stock(request, stockticker):
+    url = 'https://finance.yahoo.com/quote/' + stockticker + '/'
+    r = requests.get(url)
+    soup = BeautifulSoup(r.text, 'html.parser')
+    name = soup.find('h1', {'class': 'D(ib) Fz(18px)'}).text
+    price = soup.find('span', {'class': 'Trsdu(0.3s) Fw(b) Fz(36px) Mb(-4px) D(ib)'}).text
+    close = soup.find('span', {'data-reactid': '52'}).text
+    marketcap = soup.find('span', {'data-reactid': '138'}).text
+    open = soup.find('span', {'data-reactid': '102'}).text
+    bid = soup.find('span', {'data-reactid': '107'}).text
+    ask = soup.find('span', {'data-reactid': '112'}).text
+    dayrange = soup.find('td', {'data-reactid': '116'}).text
+    yearrange = soup.find('td', {'data-reactid': '120'}).text
+    dayvolume = soup.find('span', {'data-reactid': '125'}).text
+    averagevolume = soup.find('td', {'data-reactid': '129'}).text
+
+    context = {
+        "stockname": name,
+        "stockprice": price,
+        "stockclose": close,
+        "stockopen": open,
+        "stockbid": bid,
+        "stockask": ask,
+        "stockdayrange": dayrange,
+        "stockyearrange": yearrange,
+        "stockdayvolume" : dayvolume,
+        "stockaveragevolume": averagevolume,
+
+        "stockmarketcap": marketcap,
+    }
+    return render(request, 'stockpage.html', context)
+
+def news(request):
+
+    return render(request, 'Newspage.html')
