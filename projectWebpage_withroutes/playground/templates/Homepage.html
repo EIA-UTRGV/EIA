@@ -2,7 +2,11 @@
 <!-- bootstrap v5.0-->
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- This is what connects Homepage.html to styles.css page -->
+  {% load static %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+
     <title>Home Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,7 +43,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <!--logo picture placeholder--> 
-                <a class="nav-link active" aria-current="page" href="Loginpage.html">Sign out</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Sign out</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Account</a>
@@ -59,8 +63,8 @@
                 Menu
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="Loginpage.html">Sign out</a></li>
-                <li><a class="dropdown-item" href="stockpage.html">Stock</a></li>
+                <li><a class="dropdown-item" href="{% url 'login' %}">Sign out</a></li>
+                <li><a class="dropdown-item" href="{% url 'stock' 'AAPL' %}">Stock</a></li>
                  <!--exclude dictionary on dropdown menu due to redundancy
                 <li><a class="dropdown-item" href="#">Dictionary</a></li> -->
               </ul>
@@ -104,7 +108,7 @@
 <!-- specific homepage code-->
     <div class="row buffer">
         <div class="list-group" style="width: 20rem; height: 18rem;">
-            <a href="stockpage.html" class="list-group-item list-group-item-action">First stock</a>
+            <a href="" class="list-group-item list-group-item-action">First stock</a>
 
             <!--  if this is uncommented, then a button of "first stock" pops up,
               then dictionary definition is overlayed on the top of the screen, 
@@ -147,16 +151,18 @@
           </script>
 
             -->
-            <a href="stockpage.html" class="list-group-item list-group-item-action">Second stock</a>
-            <a href="stockpage.html" class="list-group-item list-group-item-action">Third stock</a>
-            <a href="stockpage.html" class="list-group-item list-group-item-action">Fourth stock</a>
-            <a href="stockpage.html" class="list-group-item list-group-item-action">Fifth stock</a>
-            <a href="stockpage.html" class="list-group-item list-group-item-action">Sixth stock</a>            
-            <a href="stockpage.html" class="list-group-item list-group-item-action">Seventh stock</a>
+
+            <a href="{% url 'stock' name2 %}" class="list-group-item list-group-item-action">{{name2}}</a>
+            <a href="{% url 'stock' name3 %}" class="list-group-item list-group-item-action">{{name3}}</a>
+            <a href="{% url 'stock' name4 %}" class="list-group-item list-group-item-action">{{name4}}</a>
+            <a href="{% url 'stock' name5 %}" class="list-group-item list-group-item-action">{{name5}}</a>
+            <a href="{% url 'stock' name6 %}" class="list-group-item list-group-item-action">{{name6}}</a>            
+            <a href="{% url 'stock' name7 %}" class="list-group-item list-group-item-action">{{name7}}</a>
         </div>
+
         <div class="card" style="width: 36rem;">
             <div class="card-body" >
-              <a href="stockpage.html">Will contain user position.</a>
+              <a href="">Will contain user position.</a>
             </div>
 
         </div>
@@ -168,7 +174,7 @@
         </div>
         <div class="card-body">
           <p class="card-text">General News</p>
-          <a href="Newspage.html" class="btn btn-primary schematic">Go to News</a>
+          <a href="{% url 'news' %}" class="btn btn-primary schematic">Go to News</a>
         </div>
       </div>
 
