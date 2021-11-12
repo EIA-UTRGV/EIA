@@ -1,7 +1,16 @@
-<link rel="stylesheet" href="styles.css">
-<title>Login Page</title>
 
-<form action="Homepage.html" method="post">
+
+<head>
+
+  <title>Login Page</title>
+
+  <!-- This is what connects Loginpage.html to styles.css page -->
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+</head>
+<form action="" method="post">
+  {% csrf_token %}
     <div class="imgcontainer">
       <img src="https://mediacloud.kiplinger.com/image/private/s--x2_BoIgn--/v1604352227/Investing/stock-market-today-110220.jpg" alt="Avatar" class="avatar">
     </div>
@@ -14,7 +23,7 @@
       <input type="password" placeholder="Enter Password" name="psw" required>
 
 
-      <a href=Homepage.html>  
+      <a href="{% url 'home' %}">  
         <button type="submit" class="schematic">Login</button>
       </a>
       <label>
@@ -24,6 +33,6 @@
   
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
+      <span class="psw">Register <a href="{% url 'register' %}">here</a></span>
     </div>
   </form>
