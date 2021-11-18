@@ -18,3 +18,14 @@ class Stocks(models.Model):
 	stock_avgvolume = models.PositiveBigIntegerField(max_length=30)
 	stock_mcap = models.CharField(max_length=30)
 	submission_date = models.DateField()
+
+class Dict(models.Model):
+	invest_word = models.CharField(max_length=100)
+	invest_defn = models.TextField
+
+class News(models.Model):
+	news_url = models.TextField
+	news_snip = models.TextField
+	news_date = models.DateField()
+	news_author = models.CharField(max_length=100)
+	news_img_url = models.TextField
