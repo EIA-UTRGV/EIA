@@ -5,32 +5,30 @@ from datetime import date
 class Command(BaseCommand):
 
 	def handle(self, *args, **options):
-		create_user("roel","password")
-
-		create_stock("Apple Inc."
-		,"AAPL"
-		,"makes apple phones every year"
-		,147.87
-		,148.24,
-		"0.00 x 1100",
-		"0.00 x 1200",
-		40264924,
-		76143410,
-		"2.426T"
-		,date.today())
+		create_user("user1","password")
+		create_stock("Johnson & Johnson",
+			"JnJ",
+			"makes apple phones every year",
+			147.87,
+			148.24,
+			"0.00 x 1100",
+			"0.00 x 1200",
+			40264924,
+			76143410,
+			"2.426T",
+			date.today()
+			)
 
 def create_user(email,password):
-
 	user = User.objects.filter(email=email).first()
 	if user is None:
 		new_user = User()
 		new_user.email = email
 		new_user.password = password
 		new_user.save()
-	print(user)
+	#print(user)
 
 def create_stock(name,ticker,description,pclose,open,bid,ask,volume,avgvolume,mcap,sdate):
-
 	new_stock = Stocks.objects.filter(stock_ticker = ticker).first()
 	if ticker is None:
 		new_stock = Stocks()
@@ -46,3 +44,4 @@ def create_stock(name,ticker,description,pclose,open,bid,ask,volume,avgvolume,mc
 		new_stock.stock_mcap = mcap
 		new_stock.submission_date = sdate
 		new_stock.save()
+		#print(new_stock)

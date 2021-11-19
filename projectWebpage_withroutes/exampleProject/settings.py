@@ -54,7 +54,7 @@ ROOT_URLCONF = 'exampleProject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'EIA_db',
         'USER': 'eia_user',
         'PASSWORD': 'bf$EcUCM35$n',
-        'HOST': '127.0.0.1',
+        'HOST': '76.85.49.100',
         'PORT': '3306',
     }
 }
