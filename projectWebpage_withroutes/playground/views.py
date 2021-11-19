@@ -2,11 +2,13 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
-
+from django.contrib.auth.forms import UserCreationForm
 
 
 # Create your views here.
 def register(request):
+
+    
 
     if request.method == 'POST':
         return redirect(login)
@@ -14,10 +16,10 @@ def register(request):
     return render(request, 'Registerpage.html')
 
 def login(request):
-    
+
     if request.method == 'POST':
         return redirect(home)
-    
+
     return render(request, 'Loginpage.html')
 
 def home(request):
