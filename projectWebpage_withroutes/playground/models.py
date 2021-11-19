@@ -29,3 +29,7 @@ class News(models.Model):
 	news_date = models.DateField()
 	news_author = models.CharField(max_length=100)
 	news_img_url = models.TextField
+
+class User_pref(models.Model):
+	email = models.ForeignKey(User, on_delete=models.CASCADE)
+	stock = models.ForeignKey(Stocks, on_delete=models.CASCADE)
