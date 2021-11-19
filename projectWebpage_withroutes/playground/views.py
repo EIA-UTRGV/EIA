@@ -3,6 +3,7 @@ from django.http import HttpResponse
 import requests
 from bs4 import BeautifulSoup
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -21,12 +22,21 @@ def register(request):
 
     return render(request, 'Registerpage.html', context)
 
-def login(request):
+def loginpage(request):
 
     if request.method == 'POST':
-        return redirect(home)
+        username = request.POST.get('username')
+        password = request.POST.get('password')
 
-    return render(request, 'Loginpage.html')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+
+    context={}
+
+    return render(request, 'Loginpage.html',context)
 
 def home(request):
     context = {
