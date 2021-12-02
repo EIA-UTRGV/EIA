@@ -108,7 +108,7 @@
 <!-- specific homepage code-->
     <div class="row buffer">
         <div class="list-group" style="width: 20rem; height: 18rem;">
-          <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name1 %}" class="list-group-item list-group-item-action">{{name1}}</a>
+          <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name1 %}" class="list-group-item list-group-item-action">{{name1}}</a>
 
             <!--  if this is uncommented, then a button of "first stock" pops up,
               then dictionary definition is overlayed on the top of the screen, 
@@ -137,6 +137,8 @@
           <script>
           // Get the modal
           var modal = document.getElementById('id01');
+
+          var timer;
           
           // When the user clicks anywhere outside of the modal, close it
           window.onclick = function(event) {
@@ -144,16 +146,26 @@
                   modal.style.display = "none";
               }
           }
+
+          function dictbox()
+          {
+            timer = setTimeout("document.getElementById('id01').style.display='block'",3000);
+          }
+
+          function reset()
+          {
+            clearTimeout(timer);
+          }
           </script>
 
             
 
-            <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name2 %}" class="list-group-item list-group-item-action">{{name2}}</a>
-            <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name3 %}" class="list-group-item list-group-item-action">{{name3}}</a>
-            <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name4 %}" class="list-group-item list-group-item-action">{{name4}}</a>
-            <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name5 %}" class="list-group-item list-group-item-action">{{name5}}</a>
-            <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name6 %}" class="list-group-item list-group-item-action">{{name6}}</a>            
-            <a onmouseover="document.getElementById('id01').style.display='block'" href="{% url 'stock' name7 %}" class="list-group-item list-group-item-action">{{name7}}</a>
+            <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name2 %}" class="list-group-item list-group-item-action">{{name2}}</a>
+            <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name3 %}" class="list-group-item list-group-item-action">{{name3}}</a>
+            <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name4 %}" class="list-group-item list-group-item-action">{{name4}}</a>
+            <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name5 %}" class="list-group-item list-group-item-action">{{name5}}</a>
+            <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name6 %}" class="list-group-item list-group-item-action">{{name6}}</a>            
+            <a onmouseover="dictbox()" onmouseout = "reset()" href="{% url 'stock' name7 %}" class="list-group-item list-group-item-action">{{name7}}</a>
         </div>
 
         <div class="card" style="width: 36rem;">
