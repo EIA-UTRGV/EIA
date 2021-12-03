@@ -79,7 +79,7 @@ DATABASES = {
         'NAME': 'EIA_db',
         'USER': 'eia_user',
         'PASSWORD': 'bf$EcUCM35$n',
-        'HOST': '76.85.49.100',
+        'HOST': '76.187.229.114',
         'PORT': '3306',
     }
 }

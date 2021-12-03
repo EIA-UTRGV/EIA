@@ -14,8 +14,8 @@ class Stocks(models.Model):
 	stock_open = models.FloatField()
 	stock_bid = models.CharField(max_length=30)
 	stock_ask = models.CharField(max_length=30)
-	stock_volume = models.PositiveIntegerField(max_length=30)
-	stock_avgvolume = models.PositiveBigIntegerField(max_length=30)
+	stock_volume = models.PositiveIntegerField()
+	stock_avgvolume = models.PositiveBigIntegerField()
 	stock_mcap = models.CharField(max_length=30)
 	submission_date = models.DateField()
 
