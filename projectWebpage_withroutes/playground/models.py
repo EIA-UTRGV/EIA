@@ -21,15 +21,19 @@ class Stocks(models.Model):
 
 class Dict(models.Model):
 	invest_word = models.CharField(max_length=100)
-	invest_defn = models.TextField
+	invest_defn = models.CharField(max_length=255)
 
 class News(models.Model):
-	news_url = models.TextField
-	news_snip = models.TextField
+	news_url = models.CharField(max_length=255)
+	news_snip = models.CharField(max_length=255)
 	news_date = models.DateField()
 	news_author = models.CharField(max_length=100)
-	news_img_url = models.TextField
+	news_img_url = models.CharField(max_length=255)
 
 class User_pref(models.Model):
 	email = models.ForeignKey(User, on_delete=models.CASCADE)
+<<<<<<< Updated upstream
 	stock = models.ForeignKey(Stocks, on_delete=models.CASCADE)
+=======
+	user_stock_preferences = models.CharField(max_length=255)
+>>>>>>> Stashed changes
