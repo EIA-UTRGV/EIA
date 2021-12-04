@@ -79,11 +79,7 @@ DATABASES = {
         'NAME': 'EIA_db',
         'USER': 'eia_user',
         'PASSWORD': 'bf$EcUCM35$n',
-<<<<<<< Updated upstream
-        'HOST': '76.187.229.114',
-=======
         'HOST': '76.85.44.248',
->>>>>>> Stashed changes
         'PORT': '3306',
     }
 }
