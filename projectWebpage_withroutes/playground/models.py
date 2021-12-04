@@ -32,8 +32,4 @@ class News(models.Model):
 
 class User_pref(models.Model):
 	email = models.ForeignKey(User, on_delete=models.CASCADE)
-<<<<<<< Updated upstream
-	stock = models.ForeignKey(Stocks, on_delete=models.CASCADE)
-=======
 	user_stock_preferences = models.CharField(max_length=255)
->>>>>>> Stashed changes
