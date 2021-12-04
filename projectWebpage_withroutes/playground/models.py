@@ -1,10 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 TRILLION = 1000000000000
-class User(models.Model):
-	email = models.CharField(max_length=30)
-	password = models.CharField(max_length=30)
+#class User(models.Model):
+#	email = models.CharField(max_length=30)
+#	password = models.CharField(max_length=30)
 
 class Stocks(models.Model):
 	stock_name =  models.CharField(max_length=30)
