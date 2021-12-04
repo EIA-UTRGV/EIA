@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth.models import User
 
 # Create your views here.
 def register(request):
