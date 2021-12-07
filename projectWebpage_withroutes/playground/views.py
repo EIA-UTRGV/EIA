@@ -140,7 +140,7 @@ def stock(request, stockticker):
     ))
 
     chart.update_layout(
-        title = 'TSLA Price Live',
+        title = 'Live Price',
         yaxis_title='Stock Price'
     )
 
@@ -159,8 +159,7 @@ def stock(request, stockticker):
         )
     )
 
-    chart_html = plotly.offline.plot(chart, include_plotlyjs=False, output_type='div')
-    #chart.write_html('/playground/templates/chart.html')
+    graph = chart.to_html(full_html=False, default_height= 500, default_width = 700)
 
     context = {
         "stockname": name,
@@ -178,7 +177,7 @@ def stock(request, stockticker):
         "stock_titles": stock_titles,
         "stock_sources": stock_source,
         "stock_zips": zips,
-        "chart": chart_html
+        "chart": graph
     }
     return render(request, 'stockpage.html', context)
 
