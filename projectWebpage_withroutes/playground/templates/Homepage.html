@@ -52,10 +52,6 @@
                 <a class="nav-link" href="#">Dictionary</a>
               </li>-->
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button  class="btn btn-primary schematic" type="submit" >Search</button>
-            </form>
 
 
             <div class="dropdown" id= "idButtons">
@@ -75,9 +71,12 @@
             </form>
 
             <!--the color changing schematic button-->
-            <form id= "idButtons" class="button">
-              <button class="btn btn-primary schematic" type="button" onclick="ChangeScheme()">NightTime</button>
-            </form>
+           <form id= "idButtons schematic2" class="button">
+             <button class="btn btn-primary schematic" type="button" onclick="ChangeScheme()">
+               <img src="https://www.pngrepo.com/png/79251/180/crescent-moon.png" width = "20" height = "20"/>
+             </button>
+
+           </form>
 
             <!--a script to change the scheme for the button on click and to disable links temporarily for dictionary overlay to work-->
             <script>
@@ -93,7 +92,6 @@
                 document.getElementById("idButtons").style.color = ("#8A2BE2");
                 document.body.style.background = ("#36393F");
                 }
-
               </script>
 
           </div>
