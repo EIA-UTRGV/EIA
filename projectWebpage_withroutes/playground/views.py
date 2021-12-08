@@ -40,6 +40,7 @@ def loginpage(request):
 
 def home(request):
     context = {
+       "name1": "PYPL",
        "name2":  "AAPL",
        "name3":  "MSFT",
        "name4":  "AMZN",
