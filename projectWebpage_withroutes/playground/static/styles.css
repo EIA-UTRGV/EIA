@@ -37,6 +37,12 @@ form {
     background-color: #f44336;
   }
 
+  .regbtn {
+      width: auto;
+      padding: 10px 18px;
+      background-color: #f44336;
+    }
+
   /* Center the avatar image inside this container */
   .imgcontainer {
     text-align: center;
