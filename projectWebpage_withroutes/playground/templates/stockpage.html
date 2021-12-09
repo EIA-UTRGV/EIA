@@ -24,14 +24,10 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <!--logo picture placeholder-->
-                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Sign out</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Account</a>
+
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Dictionary</a>
-              </li>-->
             </ul>
 
 
@@ -43,7 +39,6 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'login' %}">Sign out</a></li>
                 <li><a class="dropdown-item" href="{% url 'home'%}">Home</a></li>
-                <li><a class="dropdown-item" href="{% url 'news'%}">News</a></li>
               </ul>
             </div>
     </div>
@@ -76,15 +71,19 @@
   <p></p>
 </div>
 
- <!--the container for stock specific news-->
+<!--the container for stock specific news-->
 <div class="card" style="margin-top: auto; width: 55rem">
-  <div class="card-header">
-    News Articles
-  </div>
-  <div class="card-body">
-    <p class="card-text">Stock News</p>
-    <a href="{% url 'news'%}" class="btn btn-primary schematic">Go to News</a>
-  </div>
+
+ <div class="card-body">
+   <p class="card-text">Stock News</p>
+
+   {% for title, link in stock_zips %}
+   <div>
+     <a href="https://finance.yahoo.com/{{link}}" class="btn btn-primary schematic">{{title}}</a>
+   </div>
+   {% endfor %}
+
+ </div>
 </div>
 </body>
 </html>

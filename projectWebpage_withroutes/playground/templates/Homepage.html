@@ -35,7 +35,7 @@
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"></a>
+          <a class="navbar-brand" href="{% url 'home' %}"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -43,11 +43,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <!--logo picture placeholder-->
-                <a class="nav-link active" aria-current="page" href="{% url 'login' %}">Sign out</a>
+
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Account</a>
-              </li>
+
               <!--- <li class="nav-item">
                 <a class="nav-link" href="#">Dictionary</a>
               </li>-->
@@ -60,7 +58,6 @@
               </button>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="{% url 'login' %}">Sign out</a></li>
-                <li><a class="dropdown-item" href="{% url 'stock' 'AAPL' %}">Stock</a></li>
                  <!--exclude dictionary on dropdown menu due to redundancy
                 <li><a class="dropdown-item" href="#">Dictionary</a></li> -->
               </ul>
@@ -88,9 +85,11 @@
               /*change style colors from background and button colors to appropriate color */
               function ChangeScheme() {
                 alert("changeScheme Trigger is working");
-                document.getElementById("idButtons").style.backgroundColor = ("#8A2BE2");
+                /*document.getElementById("idButtons").style.backgroundColor = ("#8A2BE2");
                 document.getElementById("idButtons").style.color = ("#8A2BE2");
-                document.body.style.background = ("#36393F");
+                document.body.style.background = ("#36393F");*/
+                var element = document.body;
+                element.classList.toggle("dark-mode");
                 }
               </script>
 
@@ -164,16 +163,20 @@
 
         </div>
     </div>
-        <!-- the container for general stock news-->
-    <div class="card" style="margin-top: 35rem; width: 55rem">
-        <div class="card-header">
-          News Articles
-        </div>
-        <div class="card-body">
-          <p class="card-text">General News</p>
-          <a href="{% url 'news' %}" class="btn btn-primary schematic">Go to News</a>
-        </div>
+    <!-- the container for general stock news-->
+<div class="card" style="margin-top: 35rem; width: 55rem">
+
+  <div class="card-body">
+    <p class="card-text">General News</p>
+
+    {% for title, link in zips %}
+      <div>
+        <a href="https://finance.yahoo.com/{{link}}" class="btn btn-primary schematic">{{title}}</a>
       </div>
+    {% endfor %}
+
+  </div>
+</div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>

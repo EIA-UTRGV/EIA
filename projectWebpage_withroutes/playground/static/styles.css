@@ -78,13 +78,24 @@ form {
   }
 
   /* background style */
-  body {
+  /*body {
     background-color: #E9E9C9;
     }
 
 
 #schematic{
-  background-color: #04AA6D;
+  background-color: #04AA6D;*/
+    body {
+      padding: 25px;
+      background-color: #E9E9C9;
+      color: black;
+      font-size: 25px;
+      }
+
+      .dark-mode {
+        background-color: black;
+        color: #E9E9C9;
+        }
 
 }
     /*COLOR PALETTES FOR SCREEN
