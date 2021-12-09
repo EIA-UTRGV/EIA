@@ -20,18 +20,54 @@
           background-color: #E9E9C9;
           }
 
-          .schematic{  /*initialized "schematic" CLASS parameters*/
+          .schematic {  /*initialized "schematic" CLASS parameters*/
            background-color: #04AA6D;
+          }
+
+          .schematic2 {
+            background-color: #8a2be2;
+          }
+
+          .dark-mode {
+            background-color: #36393f;
           }
 
           #idButtons{  /*initialized "idButtons" ID parameters*/
             background-color: #04AA6D;
           }
+
+          #watchlist {
+            background-color: #BEBBB2;
+            position: relative;
+            bottom: 200px;
+            text-align: center;
+          }
+
+          #color {
+            background-color: cyan;
+          }
+
+          #stockchart {
+            background-color: #BEBBB2;
+            width: 1110px;
+            height: 510px;
+            left: 35px;
+            position: relative;
+            bottom: 200px
+          }
+
+          #generalnews {
+            background-color: #BEBBB2;
+            left: 500px;
+            position: relative;
+            margin-top: 10rem;
+          }
+
     </style>
   </head>
   <body>
                     <!--logo picture placeholder-->
-    <img src="data:image/png;base64,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" class="rounded float-start" height = "90" alt="alternatetext">
+    <img src="data:image/png;base64,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" class="rounded float-start" height = "60" alt="alternatetext">
 
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <div class="container-fluid">
@@ -64,12 +100,12 @@
             </div>
             <!--dictionary enable/disable button-->
             <form id= "idButtons DicButton" class="button">
-              <button class="btn btn-primary schematic" type="button" onclick="document.getElementById('id01').style.display='block'">Dictionary</button>
-            </form>
+            <button class="btn btn-primary schematic" type="button" onclick="document.getElementById('id01').style.display='block'">Dictionary</button>
+          </form>
 
             <!--the color changing schematic button-->
-           <form id= "idButtons schematic2" class="button">
-             <button class="btn btn-primary schematic" type="button" onclick="ChangeScheme()">
+           <form id= "schematic2 idButtons" class="button">
+             <button class="btn btn-primary schematic" type="button" onclick="changeBackground()">
                <img src="https://www.pngrepo.com/png/79251/180/crescent-moon.png" width = "20" height = "20"/>
              </button>
 
@@ -91,6 +127,15 @@
                 var element = document.body;
                 element.classList.toggle("dark-mode");
                 }
+
+                function changeBackground() {
+                  var variable = document.body;
+                  variable.classList.toggle("dark-mode");
+
+                  var element = document.getElementsByClassName('schematic');
+                  element.classList.toggle("schematic2");
+                }
+
               </script>
 
           </div>
@@ -103,8 +148,7 @@
 
 <!-- specific homepage code-->
     <div class="row buffer">
-        <div class="list-group" style="width: 20rem; height: 18rem;">
-            <a href="{% url 'stock' name1 %}" class="list-group-item list-group-item-action">{{name1}}</a>
+        <div class="list-group" style="width: 30rem; height: 18rem;">
 
             <!--  if this is uncommented, then a button of "first stock" pops up,
               then dictionary definition is overlayed on the top of the screen,
@@ -146,8 +190,65 @@
           }
           </script>
 
+
+
+
             -->
-            <div id="id01" class="modal">
+
+
+
+
+
+
+
+
+
+
+
+            {% for name,price in watchlist %}
+
+            <a href="{% url 'stock' name %}" id="watchlist" class="list-group-item list-group-item-action"> <b>{{name}} </b>     {{price}}</a>
+
+            {% endfor %}
+
+            <!--
+            <a href="{% url 'stock' name1 %}" id="watchlist" class="list-group-item list-group-item-action">{{name1}}</a>
+            <a href="{% url 'stock' name2 %}" id="watchlist" class="list-group-item list-group-item-action">{{name2}}</a>
+            <a href="{% url 'stock' name3 %}" id="watchlist" class="list-group-item list-group-item-action">{{name3}}</a>
+            <a href="{% url 'stock' name4 %}" id="watchlist" class="list-group-item list-group-item-action">{{name4}}</a>
+            <a href="{% url 'stock' name5 %}" id="watchlist" class="list-group-item list-group-item-action">{{name5}}</a>
+            <a href="{% url 'stock' name6 %}" id="watchlist" class="list-group-item list-group-item-action">{{name6}}</a>
+            <a href="{% url 'stock' name7 %}" id="watchlist" class="list-group-item list-group-item-action">{{name7}}</a>
+            -->
+
+        </div>
+
+        <div id="stockchart" class="card">
+            <div class="card-body" >
+              {% if graph %}
+              {{ graph|safe }}
+              {% else %}
+              <p> No graph was provided. </p>
+              {% endif %}
+            </div>
+
+        </div>
+    </div>
+    <!-- the container for general stock news-->
+<div id="generalnews" class="card" style="margin-top: 35rem; width: 70rem">
+
+  <div class="card-body">
+    <p class="card-text"><b>General News</b></p>
+
+    {% for title, link in zips %}
+      <div>
+        <a href="https://finance.yahoo.com/{{link}}" class="color btn schematic">{{title}}</a>
+      </div>
+    {% endfor %}
+
+  </div>
+</div>
+<div id="id01" class="modal">
 
  <form class="modal-content animate" action="/action_page.php" method="post">
    <div class="imgcontainer">
@@ -167,6 +268,14 @@
        <ul id="def12"><strong>Put Options</strong>: an option contract that gives the owner the right to sell an asset at a specified price, strike price, at a specific time.</ul>
        <ul id="def13"><strong>Call Options</strong>: an option contract that gives the owner the right to buy an asset at a specified price, strike price, at a specific time.</ul>
        <ul id="def14"><strong>Strike Price</strong>: set price at which the contract can be bought or sold when exercised.</ul>
+       <ul id="def15"><strong>Open</strong>: the first executed trade price of the day</ul>
+       <ul id="def16"><strong>Bid</strong>: an offer made by an investor, trader or dealer to buy an asset. The maximum price that a buyer will pay for a stock or security.</ul>
+       <ul id="def17"><strong>Ask</strong>: the price that a seller is willing to accept </ul>
+       <ul id="def18"><strong>Day's Range</strong>: the highest price and lowest price a stock traded during the day</ul>
+       <ul id="def19"><strong>52 Week Range</strong>: this is the data from 52 weeks that shows the price fluctuation in that time. It is used by investors to see how a stock might do in 52 weeks.</ul>
+       <ul id="def20"><strong>Volume</strong>: the amount of assets that changed hands over a period of time</ul>
+       <ul id="def21"><strong>Average Volume</strong>: the total volume for a specific period of time divided by the number of bars in the same period</ul>
+       <ul id="def22"><strong>Market Cap</strong>: total value of all a company's shares of stock </ul>
        </div>
    </div>
 
@@ -189,37 +298,6 @@ window.onclick = function(event) {
    }
 }
 </script>
-
-            <a href="{% url 'stock' name2 %}" class="list-group-item list-group-item-action">{{name2}}</a>
-            <a href="{% url 'stock' name3 %}" class="list-group-item list-group-item-action">{{name3}}</a>
-            <a href="{% url 'stock' name4 %}" class="list-group-item list-group-item-action">{{name4}}</a>
-            <a href="{% url 'stock' name5 %}" class="list-group-item list-group-item-action">{{name5}}</a>
-            <a href="{% url 'stock' name6 %}" class="list-group-item list-group-item-action">{{name6}}</a>
-            <a href="{% url 'stock' name7 %}" class="list-group-item list-group-item-action">{{name7}}</a>
-        </div>
-
-        <div class="card" style="width: 36rem;">
-            <div class="card-body" >
-              <a href="">Will contain user position.</a>
-            </div>
-
-        </div>
-    </div>
-    <!-- the container for general stock news-->
-<div class="card" style="margin-top: 35rem; width: 55rem">
-
-  <div class="card-body">
-    <p class="card-text">General News</p>
-
-    {% for title, link in zips %}
-      <div>
-        <a href="https://finance.yahoo.com/{{link}}" class="btn btn-primary schematic">{{title}}</a>
-      </div>
-    {% endfor %}
-
-  </div>
-</div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

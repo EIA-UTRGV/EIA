@@ -62,9 +62,58 @@ def home(request):
         article_source.append(source)
     zipped = zip(article_titles, article_links)
 
+    # Chart
+    data = yf.download(tickers="PYPL", period='1d', interval='1m')
+    chart = pgo.Figure()
+    #Candlestick
+    chart.add_trace(pgo.Candlestick(x=data.index,
+        open=data['Open'],
+        high=data['High'],
+        low=data['Low'],
+        close=data['Close'],
+        name = 'market data',
+        increasing_line_color='cyan',
+        decreasing_line_color='gray',
+    ))
+
+    chart.update_layout(
+        title = 'Live Price',
+        yaxis_title='Stock Price',
+        paper_bgcolor = 'rgb(189, 185, 174)'
+    )
+
+    chart.update_xaxes(
+        rangeslider_visible=True,
+        rangeselector=dict(
+            buttons=list([
+                dict(count=5, label="5m", step="minute", stepmode="backward"),
+                dict(count=15, label="15m", step="minute", stepmode="backward"),
+                dict(count=45, label="45m", step="minute", stepmode="backward"),
+                dict(count=1, label="1h", step="hour", stepmode="todate"),
+                dict(count=2, label="2h", step="hour", stepmode="backward"),
+                dict(count=4, label="4h", step="hour", stepmode="backward"),
+                dict(step="all")
+            ])
+        )
+    )
+
+    graph = chart.to_html(full_html=False, default_height= 480, default_width = 1000)
+
+    stock_list = ["AAPL", "PYPL", "MSFT", "AMZN", "FB", "TSLA", "NVDA", "AMC", "GME", "T", "F", "WMT", "BABA", "DELL", "SONY", "ROKU", "AMD", "COIN", "DKNG", "BAC", "RLX"]
+    price_list = []
+    # stockprice
+    for stock in stock_list:
+        url = 'https://finance.yahoo.com/quote/' + stock + '/'
+        r = requests.get(url)
+        soup = BeautifulSoup(r.text, 'html.parser')
+        price = soup.find('fin-streamer', {'class': 'Fw(b) Fz(36px) Mb(-4px) D(ib)'}).text
+        price_list.append(price)
+
+    watchlist_All = zip(stock_list, price_list)
+
     context = {
-       "name1":  "PYPL",
-       "name2":  "AAPL",
+       "name1":  "AAPL",
+       "name2":  "PYPL",
        "name3":  "MSFT",
        "name4":  "AMZN",
        "name5":  "FB",
@@ -73,7 +122,9 @@ def home(request):
        "links":  article_links,
        "titles": article_titles,
        "sources": article_source,
-       "zips": zipped
+       "zips": zipped,
+       "graph": graph,
+       "watchlist": watchlist_All 
     }
 
     return render(request, 'Homepage.html', context)
@@ -126,7 +177,7 @@ def stock(request, stockticker):
     # Log in to Chart Studio account API
     #chart_studio.tools.set_credentials_file(username='Isacc123', api_key='m17RL6zzqylDlCxh8uEt')
 
-    data = yf.download(tickers='TSLA', period='1d', interval='1m')
+    data = yf.download(tickers=stockticker, period='1d', interval='1m')
     chart = pgo.Figure()
     #Candlestick
     chart.add_trace(pgo.Candlestick(x=data.index,
@@ -141,7 +192,8 @@ def stock(request, stockticker):
 
     chart.update_layout(
         title = 'Live Price',
-        yaxis_title='Stock Price'
+        yaxis_title='Stock Price',
+        paper_bgcolor = 'rgb(189, 185, 174)'
     )
 
     chart.update_xaxes(
@@ -159,7 +211,7 @@ def stock(request, stockticker):
         )
     )
 
-    graph = chart.to_html(full_html=False, default_height= 500, default_width = 700)
+    graph = chart.to_html(full_html=False, default_height= 500, default_width = 900)
 
     context = {
         "stockname": name,
