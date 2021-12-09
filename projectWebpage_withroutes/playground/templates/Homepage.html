@@ -64,7 +64,7 @@
             </div>
             <!--dictionary enable/disable button-->
             <form id= "idButtons DicButton" class="button">
-              <button class="btn btn-primary schematic" type="button" onclick="DictionaryEvent()">Dictionary</button>
+              <button class="btn btn-primary schematic" type="button" onclick="document.getElementById('id01').style.display='block'">Dictionary</button>
             </form>
 
             <!--the color changing schematic button-->
@@ -147,6 +147,48 @@
           </script>
 
             -->
+            <div id="id01" class="modal">
+
+ <form class="modal-content animate" action="/action_page.php" method="post">
+   <div class="imgcontainer">
+     <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <div class="overflow-scroll" style="height: 18rem; text-align: center;">
+       <ul id="def01"><strong>Stocks</strong>: a stock(also known as an equity) is a secuirty that represents fractional ownership of a corporation</ul>
+       <ul id="def02"><strong>10-K</strong>: a comprehensive annual report that a publicly traded corporation has to submit to the SEC. More detailed than an annual report.</ul>
+       <ul id="def03"><strong>10-Q</strong>: a comprehensive quarterly report of financial performance for the quarter that is required by the SEC. 10-Q reports must be filed for the first three quarters of a corporations fiscal year.</ul>
+       <ul id="def04"><strong>8-K</strong>: a report about unscheduled corporate changes or material events that could be important to shareholders.</ul>
+       <ul id="def05"><strong>Annual Report</strong>: a document a public corporation must provide annually to shareholders. Less detailed than a 10-K report.</ul>
+       <ul id="def06"><strong>Common Stock</strong>: a security that represents fractional ownership in a corporation. Holders of common stock can vote on corporate issues, but each corporation has differences in the rights common stock holders have and which issues share holders are entitled to vote on. Common stock holders are also able to receive dividends if the corporation issues a dividend.</ul>
+       <ul id="def07"><strong>Preferred Stock</strong>: a stock(also known as a preferred securities) that gets priority over common stock in regards to dividends or interest. Preferred stock holders don't have the right to vote in any capacity. Preferred stocks also differs per companies so it is important to inform yourself in regards to each companies preferred stocks features.</ul>
+       <ul id="def08"><strong>Dividends</strong>: a distribution of a corporations earnings given to a class of shareholders. Dividend distributions are determined by the corporations board of directors and they may decide to issue dividends. Dividends can be distributed as cash or additional stock.</ul>
+       <ul id="def09"><strong>Options</strong>: contracts that gives the holder the right to buy or sell an underlying asset at a specific price by an expiration date.</ul>
+       <ul id="def10"><strong>American Options</strong>: options contract that can be exercised on or before the expiration date. The name refers to the style of execution not the location.</ul>
+       <ul id="def11"><strong>European Options</strong>: options contract that can only be executed on the expiration date. The name refers to the style of execution not the location.</ul>
+       <ul id="def12"><strong>Put Options</strong>: an option contract that gives the owner the right to sell an asset at a specified price, strike price, at a specific time.</ul>
+       <ul id="def13"><strong>Call Options</strong>: an option contract that gives the owner the right to buy an asset at a specified price, strike price, at a specific time.</ul>
+       <ul id="def14"><strong>Strike Price</strong>: set price at which the contract can be bought or sold when exercised.</ul>
+       </div>
+   </div>
+
+
+
+   <div class="container" style="background-color:#f1f1f1">
+     <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Exit Dictionary Box</button>
+   </div>
+ </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+   if (event.target == modal) {
+       modal.style.display = "none";
+   }
+}
+</script>
 
             <a href="{% url 'stock' name2 %}" class="list-group-item list-group-item-action">{{name2}}</a>
             <a href="{% url 'stock' name3 %}" class="list-group-item list-group-item-action">{{name3}}</a>
